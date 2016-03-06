@@ -5,7 +5,7 @@
   ],
   "env": {
     "browser": true,
-    "mocha": true,
+    "mocha": true
   },
   "globals": {
     "DEVELOPMENT": false,
@@ -16,6 +16,7 @@
     "assert": false
   },
   "rules": {
+    "semi" : [2, "never"],
     "no-console": 2,
     "block-spacing": [2, "always"],
     "new-parens": 2,
