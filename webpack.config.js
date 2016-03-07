@@ -1,27 +1,27 @@
-const head = require('lodash/head');
-const tail = require('lodash/tail');
-const path = require('path');
-const webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const cssnano = require('cssnano');
-const debug = require('debug');
-const config = require('./config');
+const head = require('lodash/head')
+const tail = require('lodash/tail')
+const path = require('path')
+const webpack = require('webpack')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const cssnano = require('cssnano')
+const debug = require('debug')
+const config = require('./config')
 
-debug.enable('app:*');
+debug.enable('app:*')
 
-const log = debug('app:webpack');
+const log = debug('app:webpack')
 
 // Environment
-const NODE_ENV = process.env.NODE_ENV || 'development';
-const DEVELOPMENT = NODE_ENV === 'development';
-const TESTING = NODE_ENV === 'test';
-const PRODUCTION = NODE_ENV === 'production';
-const __DEBUG__ = DEVELOPMENT;
+const NODE_ENV = process.env.NODE_ENV || 'development'
+const DEVELOPMENT = NODE_ENV === 'development'
+const TESTING = NODE_ENV === 'test'
+const PRODUCTION = NODE_ENV === 'production'
+const __DEBUG__ = DEVELOPMENT
 
 
 // Webpack configuration
-log('Creating webpack configuration...');
+log('Creating webpack configuration...')
 const webpackconfig = {
   devtool: config.webpack.devtool,
   resolve: {
@@ -127,32 +127,32 @@ const webpackconfig = {
   eslint: {
     configFile: path.resolve(config.paths.root, '.eslintrc'),
   },
-};
+}
 
 if (!TESTING) {
   webpackconfig.plugins.push(new webpack.optimize.CommonsChunkPlugin({
     names: ['vendor'],
-  }));
+  }))
 }
 
 if (DEVELOPMENT) {
-  log('Extending webpack configuration with development settings.');
+  log('Extending webpack configuration with development settings.')
 
-  log('Adding HMR entry points');
-  webpackconfig.entry.app.push('webpack-hot-middleware/client');
+  log('Adding HMR entry points')
+  webpackconfig.entry.app.push('webpack-hot-middleware/client')
 
-  log('Enable development plugins (HMR, NoErrors)');
+  log('Enable development plugins (HMR, NoErrors)')
   webpackconfig.plugins.push(
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin()
-  );
+  )
 }
 
 
 if (PRODUCTION) {
-  log('Extending webpack configuration with production settings.');
+  log('Extending webpack configuration with production settings.')
 
-  log('Add uglify and dedupe plugins');
+  log('Add uglify and dedupe plugins')
   webpackconfig.plugins.push(
     new webpack.optimize.UglifyJsPlugin({
       compress: {
@@ -161,9 +161,9 @@ if (PRODUCTION) {
       },
     }),
     new webpack.optimize.DedupePlugin()
-  );
+  )
 
-  log('Apply ExtractTextPlugin to CSS loaders.');
+  log('Apply ExtractTextPlugin to CSS loaders.')
   webpackconfig.module.loaders.filter(loader =>
     loader.loaders && loader.loaders.find(name => /css/.test(name.split('?')[0]))
   ).forEach(loader => {
@@ -173,12 +173,12 @@ if (PRODUCTION) {
     loader.loader = ExtractTextPlugin.extract(first, rest.join('!'));
     delete loader.loaders;
     /* eslint-enable */
-  });
+  })
   webpackconfig.plugins.push(
     new ExtractTextPlugin('[name].[contenthash].css', {
       allChunks: true,
     })
-  );
+  )
 }
 
-module.exports = webpackconfig;
+module.exports = webpackconfig
