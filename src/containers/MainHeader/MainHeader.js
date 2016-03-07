@@ -1,3 +1,4 @@
+/* eslint no-unused-vars: 1*/
 import React, { PropTypes } from 'react'
 import { FormattedMessage } from 'react-intl'
 import { Link } from 'react-router'
@@ -9,6 +10,7 @@ import { loginRequest, logoutRequest } from 'redux/modules/auth/auth-actions'
 import debug from 'debug'
 import LanguageSelectionDropdown from '../LanguageSelectionDropdown/LanguageSelectionDropdown'
 import { links } from 'shared/links'
+import NavHeaderLink from '../../components/NavHeaderLink/NavHeaderLink'
 
 if (__DEBUG__) {
   debug.enable('app:*')
@@ -55,11 +57,9 @@ class MainHeader extends React.Component {
         <Navbar.Collapse>
           <Nav pullRight>
             <LanguageSelectionDropdown />
-            <li role="presentation">
-              <Link activeClassName="active" to="/pages/about-us">
-                <FormattedMessage {...links.aboutUs} />
-              </Link>
-            </li>
+            <NavHeaderLink menuText={links.faq} to="/pages/faq" />
+            <NavHeaderLink menuText={links.aboutUs} to="/pages/about-us" />
+            <NavHeaderLink menuText={links.help} to="/pages/help" />
             {this.props.isAuthenticated && this.props.user ?
               <UserDropdownMenu user={this.props.user} logout={this.onLogout} />
               :
