@@ -1,9 +1,9 @@
-const webpack = require('webpack');
-const webpackConfig = require('./webpack.config');
+const webpack = require('webpack')
+const webpackConfig = require('./webpack.config')
 
-const PRODUCTION = false;
-const DEVELOPMENT = false;
-const __DEBUG__ = false;
+const PRODUCTION = false
+const DEVELOPMENT = false
+const __DEBUG__ = false
 
 const karmaWebpackConfig = Object.assign({}, webpackConfig, {
   devtool: 'inline-source-map',
@@ -18,7 +18,7 @@ const karmaWebpackConfig = Object.assign({}, webpackConfig, {
     new webpack.DefinePlugin({ DEVELOPMENT, PRODUCTION, __DEBUG__ }),
     new webpack.optimize.OccurrenceOrderPlugin(),
   ],
-});
+})
 
 module.exports = (karmaConfig) => {
   karmaConfig.set({
@@ -57,5 +57,5 @@ module.exports = (karmaConfig) => {
       quiet: true,
     },
 
-  });
-};
+  })
+}
