@@ -2,6 +2,8 @@
 export default {
   'aboutPage.title': 'Sobre Nosotros',
   'aboutPage.overview': 'para traducir...',
+  'helpPage.title': 'Help in spansih',
+  'helpPage.overview': 'Pretend this text is in spanish',
   'common.form.error.required': 'Este campo es obligatorio',
   'common.form.error.email': 'Correo no válido',
   'common.form.error.max': 'No puede ser más que {max}',

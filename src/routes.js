@@ -21,7 +21,7 @@ export default(
       <Route path="/pages" >
         <IndexRedirect to="about-us" />
         <Route path="about-us" component={AboutPage} />
-        <Route path="faq" component={HelpPage} />
+        <Route path="help" component={HelpPage} />
       </Route>
     </Route>
 
