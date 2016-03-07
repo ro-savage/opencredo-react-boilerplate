@@ -3,10 +3,10 @@ import React, { PropTypes, Element } from 'react'
 import { Button, Input, Row, Col } from 'react-bootstrap'
 import { FormattedMessage, intlShape, injectIntl } from 'react-intl'
 import { generateValidation } from 'redux-form-validation'
-import TextInput from 'components/FormFields/TextInput'
+import TextInput from '../../components/FormFields/TextInput'
 import HorizontalRadioGroup from 'components/FormFields/HorizontalRadioGroup'
 import DropDown from 'components/FormFields/DropDown'
-import FormErrorMessages from 'components/FormFields/FormErrorMessages'
+import FormErrorMessages from '../../components/FormFields/FormErrorMessages'
 import validations from './ProfileEditForm.validations'
 import { reduxForm } from 'redux-form'
 import { messages } from './ProfileEditForm.i18n'
@@ -52,6 +52,7 @@ class ProfileEditForm extends React.Component {
         givenName,
         familyName,
         nickname,
+        company,
         email,
         emailVerified,
         age,
@@ -91,6 +92,9 @@ class ProfileEditForm extends React.Component {
               </TextInput>
               <TextInput field={nickname} placeholder={formatMessage(messages.nickname.placeholder)}>
                 <FormErrorMessages field={nickname} maxLength={validations.nickname.maxLength} />
+              </TextInput>
+              <TextInput field={company} placeholder={formatMessage(messages.company.placeholder)}>
+                <FormErrorMessages field={company} maxLength={validations.company.maxLength} />
               </TextInput>
               <TextInput field={email} type="email" placeholder={formatMessage(messages.email.placeholder)}>
                 <FormErrorMessages field={email} />

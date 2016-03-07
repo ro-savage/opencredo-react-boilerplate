@@ -8,6 +8,7 @@ export type User = {
   givenName: string;
   familyName: string;
   nickname: string;
+  company: string;
   picture: string;
   email: string;
   emailVerified: boolean;

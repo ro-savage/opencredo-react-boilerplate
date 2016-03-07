@@ -41,6 +41,7 @@ export default {
   'profile.form.givenName.placeholder': 'given name',
   'profile.form.locale.label': 'Locale',
   'profile.form.nickname.placeholder': 'nickname',
+  'profile.form.company.placeholder': 'company',
   'profile.form.notes.label': 'Notes',
   'profile.form.reset.label': 'Reset',
   'profile.form.save.label': 'Save',

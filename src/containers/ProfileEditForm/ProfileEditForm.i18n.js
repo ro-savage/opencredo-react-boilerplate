@@ -55,6 +55,12 @@ export const messages = {
       defaultMessage: 'nickname',
     },
   },
+  company: {
+    placeholder: {
+      id: 'profile.form.company.placeholder',
+      defaultMessage: 'company',
+    },
+  },
   notes: {
     label: {
       id: 'profile.form.notes.label',

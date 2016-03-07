@@ -4,6 +4,7 @@
   "givenName": "John",
   "familyName": "Doe",
   "nickname": "john.doe",
+  "company": "Black Mesa",
   "picture": "/images/default-profile.png",
   "email": "john.doe@example.org",
   "emailVerified": true,

@@ -23,6 +23,7 @@ const initialUser: User = {
   givenName: '',
   familyName: '',
   nickname: '',
+  company: '',
   picture: '',
   email: '',
   emailVerified: false,

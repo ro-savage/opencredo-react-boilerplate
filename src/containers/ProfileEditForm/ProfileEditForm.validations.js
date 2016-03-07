@@ -33,6 +33,11 @@ export default {
     validateOnBlur: true,
     maxLength: 10,
   },
+  company: {
+    required: false,
+    validateOnBlur: true,
+    maxLength: 15,
+  },
   notes: {
     required: false,
     validateOnBlur: true,
